@@ -2,7 +2,7 @@ class StudySerializer < ActiveModel::Serializer
   attributes :id, :official_title, :brief_title, :comments
 
   def comments
-    comment = Comment.where(:nct_id => object.id)
-    return comment
+    comments = Comment.where(:nct_id => object.id)
+    comments.map {|comment| comment.id}
   end
 end
