@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :comments
   resources :studies
   resources :examples, except: %i[new edit]
   post '/sign-up' => 'users#signup'
