@@ -1,10 +1,8 @@
 class StudiesController < ApplicationController
   before_action :set_study, only: [:show, :update, :destroy]
-
   # GET /studies
   def index
-    @studies = Study.all
-
+    @studies = Study.paginate(page: params[:page], per_page: 10)
     render json: @studies
   end
 

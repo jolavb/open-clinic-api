@@ -9,6 +9,8 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.1.3'
+gem 'will_paginate',  '3.1.0'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
