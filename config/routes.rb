@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :sponsors, only: %i[index show]
   resources :responsible_parties, only: %i[index show]
   resources :comments
   resources :studies, only: %i[index show]
