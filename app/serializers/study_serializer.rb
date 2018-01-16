@@ -13,6 +13,8 @@ class StudySerializer < ActiveModel::Serializer
     object.sponsors.pluck(:id)
   end
 
+
+
   # def link
   #   if defined?(object.link.pluck(:id))
   #     object.link.pluck(:id)

@@ -1,9 +1,12 @@
 class StudiesController < ApplicationController
-  before_action :set_study, only: [:show, :update, :destroy]
+  before_action :set_study, only: [:show]
   # GET /studies
   def index
-    @studies = Study.paginate(page: params[:page], per_page: 50)
-    puts Study.count / 50
+    # if params[:filter]
+    #     puts params[:filter]
+    # end
+    params.permit!
+    @studies = Study.where(phase: params['phase']).paginate(page: params[:page], per_page: 50)
     render json: @studies
   end
 
@@ -13,29 +16,29 @@ class StudiesController < ApplicationController
   end
 
   # POST /studies
-  def create
-    @study = Study.new(study_params)
-
-    if @study.save
-      render json: @study, status: :created, location: @study
-    else
-      render json: @study.errors, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @study = Study.new(study_params)
+  #
+  #   if @study.save
+  #     render json: @study, status: :created, location: @study
+  #   else
+  #     render json: @study.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /studies/1
-  def update
-    if @study.update(study_params)
-      render json: @study
-    else
-      render json: @study.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @study.update(study_params)
+  #     render json: @study
+  #   else
+  #     render json: @study.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /studies/1
-  def destroy
-    @study.destroy
-  end
+  # def destroy
+  #   @study.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
