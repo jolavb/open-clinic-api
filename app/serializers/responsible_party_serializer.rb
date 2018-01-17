@@ -1,9 +1,9 @@
 class ResponsiblePartySerializer < ActiveModel::Serializer
   attributes :id, :responsible_party_type, :name, :title, :organization,
-  :affiliation
+  :affiliation, :study
 
-  # def study
-  #   object.study.id
-  # end
+  def study
+    object.study.id
+  end
 
 end
