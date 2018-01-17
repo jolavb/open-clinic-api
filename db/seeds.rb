@@ -14,6 +14,7 @@
 require 'csv'
 def load_files(model_file)
   model = model_file.chomp('.csv').constantize
+  model.destroy_all
   CSV.foreach("db/production-examples/#{model_file}", headers: true) do |row|
     model.create(row.to_h)
   end
