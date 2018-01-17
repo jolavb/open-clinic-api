@@ -1,5 +1,5 @@
 class ResponsiblePartiesController < ApplicationController
-  before_action :set_study, only: [:show]
+  before_action :set_party, only: [:show]
   def index
     @responsible_parties = ResponsibleParty.paginate(page: params[:page], per_page: 50)
     render json: @responsible_parties
