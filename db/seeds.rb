@@ -35,4 +35,4 @@ def test
   end
 end
 
-load_files
+find_files

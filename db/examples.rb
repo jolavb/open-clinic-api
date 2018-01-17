@@ -42,11 +42,9 @@ def test(limit)
 end
 
 
-def export
+def export(limit)
   set_files
-  export_studies(10)
+  export_studies(limit)
 end
 
-test(200)
-
-# export
+export(3000)
