@@ -12,10 +12,10 @@ This Rails API serves public clinical trial data to the Open-Clinic-API from a p
 
 
 ## Technologies Used:
-⋅⋅* Ruby
-⋅⋅* Rails
-⋅⋅* Postgres
-⋅⋅* Grunt
++ Ruby
++ Rails
++ Postgres
++ Grunt
 
 ## Future Additions:
 The API currently establishes models and relationships for 4 out of 41 available schema tables. Future iterations will include additional relationships and models in order to serve addtional related study information.
@@ -29,7 +29,7 @@ I intentionally bit off more than I could chew by cloning a large existing datab
 
 ## EndPoints
 
-/studies:
+#### /studies
 
 |Method| Controller Action      | Params          | Description  |
 |:---:| :-------------: |:-------------:| :-----:|
@@ -37,7 +37,7 @@ I intentionally bit off more than I could chew by cloning a large existing datab
 |GET| Show    | N/A     |   Shows Specific Study by NCT_ID |
 
 
-/sponsors:
+#### sponsors
 
 |Method| Controller Action      | Params          | Description  |
 | :---:| :-------------: |:-------------:| :-----:|
@@ -45,14 +45,14 @@ I intentionally bit off more than I could chew by cloning a large existing datab
 |GET| Show    | :nct_id    |   Shows Specific Sponsor by ID |
 
 
-/responsible_parties:
+#### /responsible_parties
 
 |Method| Controller Action     | Params          | Description  |
 | :---:| :-------------: |:-------------:| :-----:|
 |GET| Index      | :page | Shows All responsible parties, paginated by 50 results. |
 |GET| Show    | :id   |   Shows specific responsible parties by id |
 
-/comments:
+#### /comments
 
 |Method| Controller Action     | Params          | Description  |
 | :----:| :-------------: |:-------------:| :-----:|
@@ -63,7 +63,7 @@ I intentionally bit off more than I could chew by cloning a large existing datab
 |DELETE| Destroy | :id | comment id and destroys comment|
 
 
-/users:
+#### /users
 
 |URL Pattern|Method| Controller Action     | Params  | Description  |
 | :---:| :---: | :-------------: |:-------------:| :-----:|
