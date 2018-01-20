@@ -1,5 +1,7 @@
 #!/bin/bash
-API="${API_ORIGIN:-http://localhost:4741}"
+EMAIL='homer'
+PASSWORD='homer'
+API="${API_ORIGIN:-https://jolavb.github.io/open-clinic-client}"
 URL_PATH="/sign-in"
 curl "${API}${URL_PATH}" \
   --include \

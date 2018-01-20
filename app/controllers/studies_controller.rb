@@ -6,8 +6,8 @@ class StudiesController < ApplicationController
     #     puts params[:filter]
     # end
     params.permit!
-    if params[:phase]
-      @studies = Study.where(phase: params['phase']).paginate(page: params[:page], per_page: 50)
+    if params[:phase] && params[:officialTitle]
+      @studies = Study.where('phase = ? AND official_title LIKE ?',params['phase'] ,"%#{params[:officialTitle]}%").paginate(page: params[:page], per_page: 50)
     else
       @studies = Study.all.paginate(page: params[:page], per_page: 50)
     end
