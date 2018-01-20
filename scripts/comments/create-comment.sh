@@ -1,15 +1,15 @@
-#!/bin/bash
+TEXT="curl test homer"
 API="${API_ORIGIN:-http://localhost:4741}"
-URL_PATH="/sign-in"
+URL_PATH="/comments"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
   --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+    "comment": {
+      "text": "'"${TEXT}"'",
+      "nct_id": "NCT03303235"
     }
   }'
 

@@ -1,23 +1,21 @@
 class CommentsController < ProtectedController
-  before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :set_comment, only: [:update, :destroy]
   skip_before_action :authenticate, only: %i[index show]
 
   # GET /comments
   def index
     @comments = Comment.all
-
     render json: @comments
   end
 
   # GET /comments/1
   def show
-    render json: @comment
+    render json: Comment.find(params[:id])
   end
 
   # POST /comments
   def create
     puts @params
-    puts current_user
     # @comment = Comment.new(comment_params)
     @comment = current_user.comments.build(comment_params)
 
@@ -45,13 +43,12 @@ class CommentsController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = current_user.comments.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:user_id, :nct_id, :text)
+      params.require(:comment).permit(:nct_id, :text)
     end
-
 
 end
