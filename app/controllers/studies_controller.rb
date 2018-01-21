@@ -2,7 +2,11 @@ class StudiesController < ApplicationController
   before_action :set_study, only: [:show]
   # GET /studies
   def index
-    @studies = Study.phase(params[:phase]).paginate(page: params[:page], per_page: 50) if params[:phase].present?
+    if params[:phase]
+      @studies = Study.phase(params[:phase])
+    else
+      @studies = Study.paginate(page: params[:page], per_page: 50)
+    end
     render json: @studies
   end
 
