@@ -1,7 +1,7 @@
 class Study < ApplicationRecord
   default_scope { Study.all }
   scope :title, ->(officialTitle) { where('official_title LIKE ?', "%#{officialTitle}%") unless officialTitle.empty?}
-  scope :phase, ->(phase) { where phase: phase unless phase }
+  scope :phase, ->(phase) { where phase: phase if phase }
 
 
   self.primary_key = 'nct_id'
