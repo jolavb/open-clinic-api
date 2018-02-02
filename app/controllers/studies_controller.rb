@@ -3,7 +3,7 @@ class StudiesController < ApplicationController
   # GET /studies
   def index
     @studies = Study.title(params[:officialTitle])
-                    .phase(params[:phase])
+                    .phase(params[:selectedPhases])
                     .paginate(page: params[:page], per_page: 50).order('nct_id DESC')
 
 
