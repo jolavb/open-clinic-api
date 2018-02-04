@@ -2,12 +2,19 @@ class StudiesController < ApplicationController
   before_action :set_study, only: [:show]
   # GET /studies
   def index
+
+    info = {
+      page: params[:page] || 1,
+      size: params[:per_page] || 10
+    }
+
+
     @studies = Study.title(params[:officialTitle])
                     .phase(params[:selectedPhases])
-                    .paginate(page: params[:page], per_page: 50).order('nct_id DESC')
+                    .order('nct_id DESC')
+                    .page(info[:page]).per(info[:size])
 
-
-    render json: @studies
+    render json: @studies, params: info, meta: pagination_dict(@studies)
   end
 
   # GET /studies/1

@@ -9,6 +9,10 @@ class Study < ApplicationRecord
   has_many :sponsors, foreign_key: 'nct_id'
   has_many :responsible_parties, foreign_key: 'nct_id'
 
+
+
+
+
   # def self.search(params)
   #   if params[:phase]
   #     Study.paginate(page: params[:page], per_page: 50).order('nct_id DESC')

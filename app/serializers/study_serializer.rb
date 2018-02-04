@@ -14,15 +14,6 @@ class StudySerializer < ActiveModel::Serializer
   end
 
 
-
-  # def link
-  #   if defined?(object.link.pluck(:id))
-  #     object.link.pluck(:id)
-  #   else
-  #     'N/A'
-  #   end
-  # end
-
   def responsible_parties
     object.responsible_parties.pluck(:id)
   end
