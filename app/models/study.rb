@@ -1,6 +1,6 @@
 class Study < ApplicationRecord
   default_scope { Study.all }
-  scope :title, ->(officialTitle) { where('official_title LIKE ?', "%#{officialTitle}%") if officialTitle}
+  scope :title, ->(officialTitle) { where('official_title ILIKE ?', "%#{officialTitle}%") if officialTitle}
   scope :phase, ->(phase) { where phase: phase if phase }
 
 
