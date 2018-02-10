@@ -1,6 +1,13 @@
 class USponsorSerializer < ActiveModel::Serializer
-  attributes :id, :name, :studies, :studycount, :phases
+  attributes :id, :name
+  attribute :studycount, if: :condition?
+  attribute :phases, if: :condition?
+  # attribute :studies, if: :condition?
+  # attributes :phases, if: :condition?
 
+  def condition?
+    true if @instance_options[:study_details]
+  end
 
   def studies
     object.studies.pluck(:nct_id)
@@ -18,5 +25,6 @@ class USponsorSerializer < ActiveModel::Serializer
       }
     phases
   end
+
 
 end

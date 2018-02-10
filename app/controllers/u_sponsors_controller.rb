@@ -3,13 +3,19 @@ class USponsorsController < ApplicationController
 
   # GET /u_sponsors
   def index
-    @u_sponsors = USponsor.all.page(1).per(25)
-    render json: @u_sponsors
+    info = {
+      page: params[:page] || 1,
+      size: params[:per_page] || 10
+    }
+
+    @u_sponsors = USponsor.sponsorname(params[:sponsor])
+                          .page(info[:page]).per(info[:size])
+    render json: @u_sponsors, params: info, meta: pagination_dict(@u_sponsors)
   end
 
   # GET /u_sponsors/1
   def show
-    render json: @u_sponsor
+    render json: @u_sponsor, study_details: true
   end
 
   # POST /u_sponsors
