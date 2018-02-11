@@ -8,6 +8,7 @@ class StudiesController < ApplicationController
       size: params[:per_page] || 10
     }
 
+    puts params[:selectedPhases]
 
     @studies = Study.title(params[:officialTitle])
                     .phase(params[:selectedPhases])

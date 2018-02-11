@@ -1,8 +1,8 @@
 class Study < ApplicationRecord
   default_scope { Study.all }
-  scope :title, ->(officialTitle) { where('official_title ILIKE ?', "%#{officialTitle}%") if officialTitle}
-  scope :phase, ->(phase) { where phase: phase if phase }
-
+  scope :title, ->(officialTitle) { where('official_title ILIKE ?', "%#{officialTitle}%") unless officialTitle == 'All'}
+  scope :phase, ->(phase) { where phase: phase.split(',') unless phase == 'All' }
+  # scope :phase, ->(phase) { where phase: phase unless phase == 'All' }
 
   self.primary_key = 'nct_id'
   has_many :comments, foreign_key: 'nct_id'
