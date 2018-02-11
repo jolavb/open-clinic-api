@@ -19,7 +19,7 @@ class StudiesController < ApplicationController
 
   # GET /studies/1
   def show
-    render json: @study
+    render json: @study, showdetails: true
   end
 
   # POST /studies
