@@ -17,14 +17,14 @@ class StudySerializer < ActiveModel::Serializer
   end
 
   def comments
-    object.comments.pluck(:id)
+    object.comments.pluck(:id) if @instance_options[:showdetails]
   end
 
   def sponsors
-    object.sponsors.pluck(:id)
+    object.sponsors.pluck(:id)  if @instance_options[:showdetails]
   end
 
   def responsible_parties
-    object.responsible_parties.pluck(:id)
+    object.responsible_parties.pluck(:id)  if @instance_options[:showdetails]
   end
 end
