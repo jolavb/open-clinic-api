@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112175329) do
+ActiveRecord::Schema.define(version: 20180204221131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -460,6 +460,7 @@ ActiveRecord::Schema.define(version: 20180112175329) do
     t.string "agency_class"
     t.string "lead_or_collaborator"
     t.string "name"
+    t.integer "u_sponsor_id"
     t.index ["agency_class"], name: "index_sponsors_on_agency_class"
     t.index ["name"], name: "index_sponsors_on_name"
   end
@@ -532,6 +533,12 @@ ActiveRecord::Schema.define(version: 20180112175329) do
     t.string "reference_type"
     t.text "citation"
     t.index ["reference_type"], name: "index_study_references_on_reference_type"
+  end
+
+  create_table "u_sponsors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
