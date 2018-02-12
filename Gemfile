@@ -9,7 +9,6 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.1.3'
-# gem 'will_paginate',  '3.1.0'
 gem 'kaminari', '~> 0.16.1'
 
 
