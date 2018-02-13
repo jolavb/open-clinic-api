@@ -20,7 +20,7 @@ This Rails API serves public clinical trial data to the Open-Clinic-API from a p
 ## Future Additions:
 The API currently establishes models and relationships for 4 out of 41 available schema tables. Future iterations will include additional relationships and models in order to serve addtional related study information.
 
-## Developemnt Process: 
+## Development Process: 
 I intentionally bit off more than I could chew by cloning a large existing database with many tables and relationships from https://www.ctti-clinicaltrials.org/. I have taken small steps and added relationships, models, routes and Controllers for 1 table at a time. I began with the primary table, which all others are related; the studies table. One each route was performing as anticipated, with the correct information serialized, I progressed to the next table. 
 
 ## Entity Relationship Diagram:
