@@ -50,7 +50,7 @@ class ApplicationController < ActionController::API
   # Require SSL for deployed applications
   force_ssl if: :ssl_configured?
   def ssl_configured?
-    # Rails.env.production?
+    Rails.env.production?
   end
 
   # Use enhanced JSON serialization
